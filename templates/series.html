@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Series
+{% endblock %}
+
+{% block contenido %}
+<h2>Aca va el contenido de series</h2>
+<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
+    {% for serie in series %}
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{serie.name}}</h5>
+            <p class="card-text">{{serie.description}}</p>
+            <p class="card-text">{{serie.genre}}</p>
+            <p class="card-text">{{serie.seasons}}</p>
+            <p class="card-text">{{serie.director}}</p>
+            <p class="card-text">{{serie.cast}}</p>
+    
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+<br>
+<a href="/peliculas/create-serie" type="button" class="btn btn-dark"> Agregar Serie </a> 
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Crear Games
+{% endblock %}
+
+{% block contenido %}
+
+{% if form %}
+    <h2>Aca va el contenido de crear games</h2>
+
+    <form action="" method="POST" >
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type="submit", value="Crear">
+    </form>
+{% elif new_product %}
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{new_game.name}}</h5>
+            <p class="card-text">{{new_game.description}}</p>
+            <p class="card-text">{{new_game.genre}}</p>
+            <p class="card-text">{{new_game.developer}}</p>
+            <p class="card-text">{{new_game.price}}</p>
+        </div>
+    </div>
+
+{% endif %}
+
+{% endblock %}

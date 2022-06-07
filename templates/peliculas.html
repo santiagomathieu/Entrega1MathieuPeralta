@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Peliculas
+{% endblock %}
+
+{% block contenido %}
+<h2>Aca va el contenido de peliculas</h2>
+<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
+    {% for pelicula in peliculas %}
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{pelicula.name}}</h5>
+            <p class="card-text">{{pelicula.description}}</p>
+            <p class="card-text">{{pelicula.genre}}</p>
+            <p class="card-text">{{pelicula.length}}</p>
+            <p class="card-text">{{pelicula.director}}</p>
+            <p class="card-text">{{pelicula.cast}}</p>
+    
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+<br>
+<a href="/peliculas/create-movie" type="button" class="btn btn-dark"> Agregar Pelicula </a> 
+
+{% endblock %}
