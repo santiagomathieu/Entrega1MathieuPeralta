@@ -6,6 +6,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
+from proyecto1.form import User_registration_form
+
 def base(request):
     return render(request,"base.html")
 
@@ -44,3 +46,26 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('inicio')
+
+
+def register_view(request):
+    if request.method == 'POST':
+        form = User_registration_form(request.POST)
+
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username = username, password = password)
+            login(request, user)
+            context = {'message':f'Usuario creado correctamente, bienvenido {username}'}
+            return render(request, 'index.html', context = context)
+        else:
+            errors = form.errors
+            form = User_registration_form()
+            context = {'errors':errors, 'form':form}
+            return render(request, 'auth/register.html', context = context)
+    else:
+        form = User_registration_form()
+        context = {'form':form}
+        return render(request, 'auth/register.html', context =context)
