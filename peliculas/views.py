@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from peliculas.models import Peliculas,Series,Games
 from peliculas.forms import Peliculas_form,Games_form,Series_form
 
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 
 def pelis(request):
     print(request.method)
@@ -93,3 +94,15 @@ def search_view(request):
     games = Games.objects.filter(name__contains = request.GET['search'])
     context = {'peliculas': peliculas,"series":series,"games":games}
     return render(request, 'search.html', context = context)
+
+class Detail_peliculas(DetailView):
+    model = Peliculas
+    template_name= 'detail_peliculas.html'
+
+class Detail_series(DetailView):
+    model = Series
+    template_name= 'detail_series.html'
+
+class Detail_games(DetailView):
+    model = Games
+    template_name= 'detail_games.html'
