@@ -8,6 +8,7 @@ from peliculas.models import Peliculas,Series,Games
 from peliculas.forms import Peliculas_form,Games_form,Series_form
 
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.urls import reverse
 
 def pelis(request):
     print(request.method)
@@ -106,3 +107,10 @@ class Detail_series(DetailView):
 class Detail_games(DetailView):
     model = Games
     template_name= 'detail_games.html'
+
+class Delete_pelicula(DeleteView):
+    model = Peliculas
+    template_name = 'delete_pelicula.html'
+
+    def get_success_url(self):
+        return reverse('peliculas')
