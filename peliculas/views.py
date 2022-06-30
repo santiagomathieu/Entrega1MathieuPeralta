@@ -114,3 +114,17 @@ class Delete_pelicula(DeleteView):
 
     def get_success_url(self):
         return reverse('peliculas')
+
+class Delete_serie(DeleteView):
+    model = Series
+    template_name = 'delete_serie.html'
+
+    def get_success_url(self):
+        return reverse('series')
+
+class Delete_game(DeleteView):
+    model = Games
+    template_name = 'delete_game.html'
+
+    def get_success_url(self):
+        return reverse('juegos')
