@@ -1,25 +1,26 @@
 {% extends 'base.html' %}
 
 {% block titulo %}
-    Peliculas
+    Games
 {% endblock %}
 
 {% block contenido %}
+<h2>Aca va el contenido de games</h2>
 <div class="d-flex" style="margin-top:5rem; margin-left:7rem">
-
-
+   
     <div class="card" style="width: 18rem;">
-            <div class="card-body">
+
+        <div class="card-body">
             <h5 class="card-title">{{object.name}}</h5>
             <p class="card-text">{{object.description}}</p>
             <p class="card-text">{{object.genre}}</p>
-            <p class="card-text">{{object.length}}</p>
-            <p class="card-text">{{object.director}}</p>
-            <p class="card-text">{{object.cast}}</p>
-        <a href="/peliculas/delete_pelicula/{{object.id}}/" class="btn btn-danger">Eliminar</a>       
+            <p class="card-text">{{object.developer}}</p>
+            <p class="card-text">{{object.price}}</p>
+        <a href="/peliculas/delete/delete_game/{{object.id}}/" class="btn btn-danger">Eliminar</a> 
+        <a href="/peliculas/update/update_game/{{object.id}}/" class="btn btn-primary">Editar</a> 
         </div>
     </div>
 
-    
 </div>
+
 {% endblock %}

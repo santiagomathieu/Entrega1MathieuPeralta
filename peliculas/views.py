@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from peliculas.models import Peliculas,Series,Games
 from peliculas.forms import Peliculas_form,Games_form,Series_form
 
-from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.views.generic import DetailView, CreateView, DeleteView, UpdateView
 from django.urls import reverse
 
 def pelis(request):
@@ -89,7 +89,6 @@ def create_game_view(request):
 
 def search_view(request):
     print(request.GET)
-    #product = Products.objects.get()
     peliculas = Peliculas.objects.filter(name__icontains = request.GET['search'])
     series = Series.objects.filter(name__contains = request.GET['search'])
     games = Games.objects.filter(name__contains = request.GET['search'])
@@ -98,33 +97,60 @@ def search_view(request):
 
 class Detail_peliculas(DetailView):
     model = Peliculas
-    template_name= 'detail_peliculas.html'
+    template_name= 'detail/detail_peliculas.html'
 
 class Detail_series(DetailView):
     model = Series
-    template_name= 'detail_series.html'
+    template_name= 'detail/detail_series.html'
 
 class Detail_games(DetailView):
     model = Games
-    template_name= 'detail_games.html'
+    template_name= 'detail/detail_games.html'
 
 class Delete_pelicula(DeleteView):
     model = Peliculas
-    template_name = 'delete_pelicula.html'
+    template_name = 'delete/delete_pelicula.html'
 
     def get_success_url(self):
         return reverse('peliculas')
 
 class Delete_serie(DeleteView):
     model = Series
-    template_name = 'delete_serie.html'
+    template_name = 'delete/delete_serie.html'
 
     def get_success_url(self):
         return reverse('series')
 
 class Delete_game(DeleteView):
     model = Games
-    template_name = 'delete_game.html'
+    template_name = 'delete/delete_game.html'
 
     def get_success_url(self):
         return reverse('juegos')
+
+class Update_pelicula(UpdateView):
+    model = Peliculas
+    template_name = 'update/update_pelicula.html'
+    fields = '__all__'
+
+
+    def get_success_url(self):
+        return reverse('detalle-pelicula', kwargs = {'pk':self.object.pk})
+
+class Update_serie(UpdateView):
+    model = Series
+    template_name = 'update/update_serie.html'
+    fields = '__all__'
+
+
+    def get_success_url(self):
+        return reverse('detalle-serie', kwargs = {'pk':self.object.pk})
+
+class Update_game(UpdateView):
+    model = Games
+    template_name = 'update/update_game.html'
+    fields = '__all__'
+
+
+    def get_success_url(self):
+        return reverse('detalle-game', kwargs = {'pk':self.object.pk})
