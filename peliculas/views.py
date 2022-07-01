@@ -1,11 +1,11 @@
 from tkinter import SE
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 
 from unicodedata import name
 from django.http import HttpResponse
 
 from peliculas.models import Peliculas,Series,Games
-from peliculas.forms import Peliculas_form,Games_form,Series_form
+from peliculas.forms import Peliculas_form,Games_form,Series_form, CommentForm
 
 from django.views.generic import DetailView, CreateView, DeleteView, UpdateView
 from django.urls import reverse
@@ -154,3 +154,17 @@ class Update_game(UpdateView):
 
     def get_success_url(self):
         return reverse('detalle-game', kwargs = {'pk':self.object.pk})
+
+
+def add_comment_to_pelicula(request, pk):
+    pelicula = get_object_or_404(Peliculas, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.pelicula = pelicula
+            comment.save()
+            return redirect('detail/detalle_pelicula', pk=pelicula.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'add_comment_to_pelicula.html', {'form': form})

@@ -1,5 +1,6 @@
 
 from django.db import models
+from datetime import date, datetime
 
 # Create your models here.
 
@@ -37,3 +38,18 @@ class Games(models.Model):
     class Meta:
         verbose_name = 'juego'
         verbose_name_plural = 'juegos'
+
+
+class Comment(models.Model):
+    post = models.ForeignKey('peliculas.Peliculas', on_delete=models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=200, null=True)
+    text = models.TextField(max_length=200, null=True)
+    created_date = models.DateTimeField(default=datetime.now)
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        return self.text

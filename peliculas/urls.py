@@ -1,7 +1,7 @@
 
 from django.urls import path
 from django.views import View
-from peliculas.views import create_movie_view, pelis, series_1, create_serie_view, juegos, create_game_view, search_view, Detail_peliculas, Detail_series, Detail_games, Delete_pelicula, Delete_serie, Delete_game,Update_pelicula, Update_serie, Update_game
+from peliculas.views import create_movie_view, pelis, series_1, create_serie_view, juegos, create_game_view, search_view, Detail_peliculas, Detail_series, Detail_games, Delete_pelicula, Delete_serie, Delete_game,Update_pelicula, Update_serie, Update_game, add_comment_to_pelicula
 
 
 
@@ -20,5 +20,6 @@ path("delete/delete_serie/<int:pk>/",Delete_serie.as_view(), name="delete-serie"
 path("delete/delete_game/<int:pk>/",Delete_game.as_view(), name="delete-pelicula"),
 path("update/update_pelicula/<int:pk>/",Update_pelicula.as_view(), name="update-pelicula"),
 path("update/update_serie/<int:pk>/",Update_serie.as_view(), name="update-serie"),
-path("update/update_game/<int:pk>/",Update_game.as_view(), name="update-game")
+path("update/update_game/<int:pk>/",Update_game.as_view(), name="update-game"),
+path("comentar-pelicula/<int:pk>/",add_comment_to_pelicula,name="comentar-pelicula")
 ]
