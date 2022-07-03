@@ -41,15 +41,15 @@ class Games(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey('peliculas.Peliculas', on_delete=models.CASCADE, related_name='comments')
-    author = models.CharField(max_length=200, null=True)
-    text = models.TextField(max_length=200, null=True)
-    created_date = models.DateTimeField(default=datetime.now)
+    post = models.ForeignKey(Peliculas, default=True, on_delete=models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=200, default=str, null=False)
+    text = models.TextField(max_length=1000, default=str, null=False)
+    created_date = models.DateTimeField(default=datetime.now, null=True)
     approved_comment = models.BooleanField(default=False)
 
     def approve(self):
         self.approved_comment = True
         self.save()
 
-    def __str__(self):
+    def _str_(self):
         return self.text

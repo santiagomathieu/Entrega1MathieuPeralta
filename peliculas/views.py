@@ -164,7 +164,7 @@ def add_comment_to_pelicula(request, pk):
             comment = form.save(commit=False)
             comment.pelicula = pelicula
             comment.save()
-            return redirect('detail/detalle_pelicula', pk=pelicula.pk)
+            return redirect('detalle-pelicula', pk=pelicula.pk)
     else:
         form = CommentForm()
     return render(request, 'add_comment_to_pelicula.html', {'form': form})
