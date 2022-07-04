@@ -23,6 +23,7 @@ class Series(models.Model):
     genre = models.CharField(max_length=30)
     director = models.CharField(max_length=40, blank=True, null=True)
     cast = models.CharField (max_length=200, blank=True, null=True)
+    series_image = models.ImageField(upload_to="imagen_series", blank=True, null=True)
 
     class Meta:
         verbose_name = 'serie'
@@ -34,6 +35,7 @@ class Games(models.Model):
     genre = models.CharField(max_length=30)
     developer = models.CharField(max_length=30)
     price = models.FloatField()
+    games_image = models.ImageField(upload_to="imagen_games", blank=True, null=True)
 
     class Meta:
         verbose_name = 'juego'

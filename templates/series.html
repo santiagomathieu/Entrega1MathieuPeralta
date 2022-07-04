@@ -10,7 +10,9 @@
     {% for serie in series %}
 
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        {%if serie.series_image%}
+        <img src="{{serie.series_image.url}}" width="200px" height="350px" class="card-img-top">
+        {%endif%}
         <div class="card-body">
             <h5 class="card-title">{{serie.name}}</h5>
             <p class="card-text">{{serie.genre}}</p>
