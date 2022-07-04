@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<div data-gb-custom-block data-tag="block"></div>
+
+    <h2>Nuevo comentario</h2>
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+
+<div data-gb-custom-block data-tag="csrf_token"></div>
+<div>
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Enviar</button>
+    </form>
+
+    </div>
+
+{% endblock %}

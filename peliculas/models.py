@@ -53,3 +53,31 @@ class Comment(models.Model):
 
     def _str_(self):
         return self.text
+
+class CommentSerie(models.Model):
+    post = models.ForeignKey(Series, default=True, on_delete=models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=200, default=str, null=False)
+    text = models.TextField(max_length=1000, default=str, null=False)
+    created_date = models.DateTimeField(default=datetime.now, null=True)
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def _str_(self):
+        return self.text
+
+class CommentGame(models.Model):
+    post = models.ForeignKey(Games, default=True, on_delete=models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=200, default=str, null=False)
+    text = models.TextField(max_length=1000, default=str, null=False)
+    created_date = models.DateTimeField(default=datetime.now, null=True)
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def _str_(self):
+        return self.text

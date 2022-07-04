@@ -18,12 +18,27 @@
             <p class="card-text">{{object.seasons}}</p>
             <p class="card-text">{{object.director}}</p>
             <p class="card-text">{{object.cast}}</p>
+            {% if request.user.is_authenticated and request.user.is_superuser %}
         <a href="/peliculas/delete/delete_serie/{{object.id}}/" class="btn btn-danger">Eliminar</a> 
         <a href="/peliculas/update/update_serie/{{object.id}}/" class="btn btn-primary">Editar</a> 
+            {% endif %}
         </div>
     </div>
 
 
 </div>
+<div>
+    <hr>
+    <a href="/peliculas/comentar-serie/{{object.id}}/" class="btn btn-primary">Agregar comentario</a>
+{% for comment in series.comments.all %}
+    <div class="comment">
+        <div class="date">{{ comment.created_date }}</div>
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+    </div>
+{% empty %}
+    <p>No hay comentarios aún</p>
+{% endfor %}
 
+</div>
 {% endblock %}
