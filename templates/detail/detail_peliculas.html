@@ -9,6 +9,7 @@
 
 
     <div class="card" style="width: 18rem;">
+        <img src="{{pelicula.peliculas_image.url}}" class="card-img-top">
             <div class="card-body">
             <h5 class="card-title">{{object.name}}</h5>
             <p class="card-text">{{object.description}}</p>
@@ -16,6 +17,7 @@
             <p class="card-text">{{object.length}}</p>
             <p class="card-text">{{object.director}}</p>
             <p class="card-text">{{object.cast}}</p>
+                
             {% if request.user.is_authenticated and request.user.is_superuser %}
         <a href="/peliculas/delete/delete_pelicula/{{object.id}}/" class="btn btn-danger">Eliminar</a>
         <a href="/peliculas/update/update_pelicula/{{object.id}}/" class="btn btn-primary">Editar</a>

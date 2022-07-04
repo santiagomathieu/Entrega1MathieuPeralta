@@ -23,5 +23,5 @@ path("update/update_serie/<int:pk>/",Update_serie.as_view(), name="update-serie"
 path("update/update_game/<int:pk>/",Update_game.as_view(), name="update-game"),
 path("comentar-pelicula/<int:pk>/",add_comment_to_pelicula,name="comentar-pelicula"),
 path("comentar-serie/<int:pk>/",add_comment_to_serie,name="comentar-serie"),
-path("comentar-game/<int:pk>/",add_comment_to_game,name="comentar-game")
-]
+path("comentar-game/<int:pk>/",add_comment_to_game,name="comentar-game"),
+] 

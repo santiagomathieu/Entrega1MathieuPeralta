@@ -11,7 +11,7 @@ class Peliculas(models.Model):
     genre = models.CharField(max_length=30)
     director = models.CharField(max_length=40, blank=True, null=True)
     cast = models.CharField (max_length=200,blank=True, null=True)
-    
+    peliculas_image = models.ImageField(upload_to="imagen_peliculas", blank=True, null=True)
     class Meta:
         verbose_name = 'pelicula'
         verbose_name_plural = 'peliculas'
