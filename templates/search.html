@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block contenido %}
-<h1>Aca va el contenido de buscar </h1>
+<h1 style="color: white;">Aca va el contenido de buscar </h1>
 <div class="d-flex" style="margin-top:5rem; margin-left:7rem">
     {% for pelicula in peliculas %}
 
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <img src="{{pelicula.peliculas_image.url}}" class="card-img-top">
         <div class="card-body">
             <h5 class="card-title">{{pelicula.name}}</h5>
             <p class="card-text">{{pelicula.description}}</p>
@@ -25,7 +25,7 @@
     {% for serie in series %}
 
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <img src="{{serie.series_image.url}}" width="200px" height="350px" class="card-img-top">
         <div class="card-body">
             <h5 class="card-title">{{serie.name}}</h5>
             <p class="card-text">{{serie.description}}</p>
@@ -40,7 +40,7 @@
     {% for game in games %}
 
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <img src="{{game.games_image.url}}" width="200px" height="350px" class="card-img-top">
         <div class="card-body">
             <h5 class="card-title">{{game.name}}</h5>
             <p class="card-text">{{game.description}}</p>
