@@ -15,7 +15,7 @@ class Detail_user_profile(DetailView):
 class Update_user_profile(UpdateView):
     model = User_profile
     template_name = 'user/update_user_profile.html'
-    fields = ['name','mail', 'profile_image']
+    fields = ['mail', 'profile_image']
 
     def get_success_url(self):
         return reverse('detail_user_profile', kwargs = {'pk':self.object.pk})
