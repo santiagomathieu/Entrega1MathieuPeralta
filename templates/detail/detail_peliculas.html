@@ -32,12 +32,12 @@
     <a href="/peliculas/comentar-pelicula/{{object.id}}/" class="btn btn-primary">Agregar comentario</a>
 {% for comment in peliculas.comments.all %}
     <div class="comment">
-        <div class="date">{{ comment.created_date }}</div>
-        <strong>{{ comment.author }}</strong>
-        <p>{{ comment.text|linebreaks }}</p>
+        <div class="date" style="color: white;">{{ comment.created_date }}</div>
+        <strong style="color: white;">{{ comment.author }}</strong>
+        <p style="color: white;">{{ comment.text }}</p>
     </div>
 {% empty %}
-    <p>No hay comentarios aún</p>
+    <p style="color: white;">No hay comentarios aún</p>
 {% endfor %}
 
 </div>

@@ -20,6 +20,8 @@ from proyecto1.views import base, index,login_view,logout_view,register_view,abo
 from django.conf import settings
 from django.conf.urls.static import static
 
+from users.views import Detail_user_profile, Update_user_profile
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,6 +32,10 @@ urlpatterns = [
     path("logout/",logout_view, name="logout"),
     path("auth/register/",register_view, name="register"),
     path('users/', include('users.urls')),
-    path("about/",about,name="about")
+    path("about/",about,name="about"),
+    path('user/update_user_profile/<int:pk>/', Update_user_profile.as_view(), name = 'update_user_profile'),
+    path('user/detail_user_profile/<int:pk>/', Detail_user_profile.as_view(), name = 'detail_user_profile'),
+    
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

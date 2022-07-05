@@ -35,7 +35,7 @@ class Games(models.Model):
     genre = models.CharField(max_length=30)
     developer = models.CharField(max_length=30)
     price = models.FloatField()
-    game_image = models.ImageField(upload_to="imagen_games", blank=True, null=True)
+    games_image = models.ImageField(upload_to="imagen_games", blank=True, null=True)
 
     class Meta:
         verbose_name = 'juego'
