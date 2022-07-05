@@ -66,7 +66,7 @@ def create_serie_view(request):
                     genre = form.cleaned_data['genre'],
                     director = form.cleaned_data['director'],
                     cast = form.cleaned_data['cast'],
-                    serie_image = request.FILES['serie_image'] 
+                    series_image = request.FILES['series_image'] 
                 )
                 context ={'new_serie':new_serie}
             return render(request, 'create_series.html', context=context)
