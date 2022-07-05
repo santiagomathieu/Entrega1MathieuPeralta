@@ -36,7 +36,7 @@ def create_movie_view(request):
                     genre = form.cleaned_data['genre'],
                     director = form.cleaned_data['director'],
                     cast = form.cleaned_data['cast'],
-                    peliculas_image = form.cleaned_data['peliculas_image'] 
+                    peliculas_image = request.FILES['peliculas_image'] 
                 )
                 context ={'new_movie':new_movie}
             return render(request, 'create_peliculas.html', context=context)
