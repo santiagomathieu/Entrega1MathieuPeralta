@@ -65,7 +65,8 @@ def create_serie_view(request):
                     seasons = form.cleaned_data['seasons'],
                     genre = form.cleaned_data['genre'],
                     director = form.cleaned_data['director'],
-                    cast = form.cleaned_data['cast']
+                    cast = form.cleaned_data['cast'],
+                    serie_image = request.FILES['serie_image'] 
                 )
                 context ={'new_serie':new_serie}
             return render(request, 'create_series.html', context=context)
@@ -91,7 +92,8 @@ def create_game_view(request):
                     description = form.cleaned_data['description'],
                     genre = form.cleaned_data['genre'],
                     developer = form.cleaned_data['developer'],
-                    price = form.cleaned_data['price']
+                    price = form.cleaned_data['price'],
+                    games_image = request.FILES['games_image'] 
                 )
                 context ={'new_game':new_game}
             return render(request, 'create_games.html', context=context)    
