@@ -8,7 +8,7 @@ Editar juego
 
     {% if form %}
         <h2 style="margin-left:30rem; color: white;">Complete los campos a editar</h2>
-        <form action="" method="POST" style="margin-left:40rem;margin-top:7rem">
+        <form action="" enctype="multipart/form-data" method="POST" style="margin-left:40rem;margin-top:7rem">
             {% csrf_token %}
             <table style="color: white">
                 {{form.as_table}}

@@ -9,7 +9,7 @@
 {% if form %}
     <h2 style="color: white">Aca va el contenido de crear series</h2>
 
-    <form action="" method="POST" >
+    <form action="" enctype="multipart/form-data" method="POST" >
         {% csrf_token %}
         <table style="color: white">
             {{form.as_table}}
