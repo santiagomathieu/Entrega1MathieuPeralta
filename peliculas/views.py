@@ -36,7 +36,7 @@ def create_movie_view(request):
                     genre = form.cleaned_data['genre'],
                     director = form.cleaned_data['director'],
                     cast = form.cleaned_data['cast'],
-                    peliculas_image = form.cleaned_data['peliculas_image']
+                    peliculas_image = form.cleaned_data['peliculas_image'] 
                 )
                 context ={'new_movie':new_movie}
             return render(request, 'create_peliculas.html', context=context)
@@ -177,7 +177,7 @@ def add_comment_to_pelicula(request, pk):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.pelicula = pelicula
+            comment.post_id = pelicula.id
             comment.save()
             return redirect('detalle-pelicula', pk=pelicula.pk)
     else:
@@ -191,7 +191,7 @@ def add_comment_to_serie(request, pk):
         form = CommentSerieForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.serie = serie
+            comment.post_id = serie.id
             comment.save()
             return redirect('detalle-serie', pk=serie.pk)
     else:
@@ -205,7 +205,7 @@ def add_comment_to_game(request, pk):
         form = CommentGameForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.game = game
+            comment.post_id = game.id
             comment.save()
             return redirect('detalle-game', pk=game.pk)
     else:
