@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 from proyecto1.form import User_registration_form
 
+
 def base(request):
     return render(request,"base.html")
 

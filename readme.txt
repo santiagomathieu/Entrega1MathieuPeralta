@@ -1,8 +1,9 @@
-En el momento que se corra el servidor, se debera ingresar a http://localhost:8000/ para que se muestre el inicio de la pagina. Luego se puede proceder a ingresar a cada
-categoria en la cual se muestra el contenido de la misma, y cada una posee un boton al pie izquierdo donde al pulsarlo el usuario sera redirigido al formulario correspondiente para 
-agregar contenido a dicha categoria. Ademas en la parte superior derecha, se encuentra la barra de busqueda, con la cual se puede buscar el contenido de todas las categorias.
-    Las direcciones directas para ingresar a cada catergoria son:
-    peliculas: http://localhost:8000/peliculas/pelis/
-    series: http://localhost:8000/peliculas/series/
-    juegos: http://localhost:8000/peliculas/games/
-    El superusuario creado es adminadmin y su contraseña es admin123
+Integrantes: Mathieu, Santiago  y Peralta, Santiago
+
+Para la elaboracion de este proyecto pautamos Jornadas de trabajo de 3 a 4 horas diarias, donde resolvimos los distintos aspectos requeridos para el trabajo final de manera conjunta.
+Este esquema lo mantuvimos desde la primera entrega y fuimos incorporando los distintos requerimientos del proyecto a medida que avanzaban las clases del curso.
+
+
+En el ultimo tramo nos encontramos con la dificultad de no poder vincular los perfiles de usuarrio con el registro de los mismos. No encontramos soluciones dentro de los diapositivas
+del programa y las distintas alternativas intentadas no dieron resultado.
+
